@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>exam1</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <style>       
+        .btn{
+            display: none;     
+            text-align: center;   
+            margin: 0;
+            position: absolute;
+            
+            left: 30%;
+            
+        }
+        #div1{
+            color: black;
+            text-align: center;
+            font-size: 300px;
+        }
+        </style>
+    </head>
+    <body>
+        <div  id="div1"></div>
+
+        <button id="red" class="btn">빨강</button>
+        <button id="blue" class="btn">파랑</button>
+        <button id="green" class="btn">초록</button>
+    </body>
+    <script>
+       
+        $(function(){
+            //let text = "";
+            let text = prompt("텍스트값을 입력해주세요");
+            if(text==""){
+                alert("텍스트값을 입력해주세요");                
+            }
+            else {
+                $("#div1").html(text);
+                $(".btn").css("display","inline-block");
+            }
+        });
+        $("#red").on("click",function(){
+            alert("빨강색으로 변경됩니다");
+            $("#div1").css("color","red");
+        });
+        $("#blue").on("click",function(){
+            alert("파랑색으로 변경됩니다");
+            $("#div1").css("color","blue");
+        });
+        $("#green").on("click",function(){
+            alert("초록색으로 변경됩니다");
+            $("#div1").css("color","green");
+        });
+    </script>
+</html>

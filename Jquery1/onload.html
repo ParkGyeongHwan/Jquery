@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>jquery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+    <div id="div1" class="divclass"></div>     
+    <button class="btn" id="btn1"> 버튼</button>
+  
+    
+    </body>
+    <script>
+   
+        $(function(){
+
+            $("#btn1").on(
+                {
+                click ,function(){
+                alert('출력됨');
+            }
+            ,
+            mouseover,function(){
+                alert('마우스클릭');
+            }
+            });
+            
+            
+
+    </script>
+</html>

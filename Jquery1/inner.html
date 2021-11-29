@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>inner</title>
+    </head>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <body>
+    <div id="test">아무것도없음</div>        
+    <button id="btn">버튼</button>
+    <button id="btn2">버튼2</button>
+    </body>
+    <script>
+$(function(){
+
+    $("#btn").on({
+        click: function() {
+            $("#test").html("마우스클릭됨");
+        },
+        mouseout: function() {
+            $("#test").html("마우스떠남");
+        }
+        
+    });
+    $("#btn2").on("click",function(){
+        alert($("#test").html() );
+    });
+
+});
+
+
+    </script>
+</html>

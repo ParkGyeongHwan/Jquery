@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>jquery</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+        <style>
+            .divs{
+                display: block;
+                height: 200px;
+                width: 100px;
+                border: solid 1px black;
+                position: absolute;
+                
+            }
+            
+        </style>
+    </head>
+    <body id="body">
+              
+    </body>
+    <script>
+        
+        $(function(){
+            $("#body").html(`
+        <div class="divs" id="div1"></div>
+        <div class="divs" id="div2"></div>
+        <div class="divs" id="div3"></div>
+        <div class="divs" id="div4"></div>
+        <div id="div5"><img id="image" src="람썬1.png"></div>`);
+
+
+            $("#div1").css("background-color","blue");
+            $("#div1").css("height","100px");
+            $("#div1").css("width","200px");
+            $("#div1").css("top","0px");
+            $("#div1").css("left","0px");
+
+            $("#div2").css("background-color","green");
+            $("#div2").css("left","200px");
+            $("#div2").css("top","0px");
+
+            $("#div3").css("background-color","red");
+            $("#div3").css("left","0px");
+            $("#div3").css("top","100px");
+
+            $("#div4").css("background-color","purple");
+            $("#div4").css("height","100px");
+            $("#div4").css("width","200px");
+            $("#div4").css("left","100px");
+            $("#div4").css("top","200px");
+
+            $("#div5").css("position","absolute");            
+            $("#div5").css("left","100px");
+            $("#div5").css("top","100px");            
+            $("#image").css("height","100px");
+            $("#image").css("width","100px");
+        });
+
+
+
+
+
+    </script>
+</html>
