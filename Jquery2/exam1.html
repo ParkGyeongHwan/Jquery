@@ -104,10 +104,24 @@
             let count3 = $("select[name=job]").val();          
             let pw1 =  $("#pw1").val();
             if(3 <= count && 1 <= count2 && 1 == count3 && 5<=pw1.length) {
-                alert("회원가입완료");
-            } else {
-                alert("조건을 확인해주세요");
+                alert("회원가입완료");            
+            } 
+            if (3 > count){
+                alert("취미를 3개이상 선택해주세요");
+                return;
+            } 
+            if(1 > count2) {
+                alert("성별을 선택해주세요");
+                return;
             }
+            if(1 > count3) {
+                alert("직업을 선택해주세요");
+                return;
+            }
+             if(pw1.length < 5) {
+                alert("비밀번호를 5자이상 입력해주세요");
+                return;
+            }      
         });
         
         });

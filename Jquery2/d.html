@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>d</title>
+    </head>
+    <link rel="stylesheet" type="text/css" href="${_.contextPath}/resources/lib/jquery-sumoselect/sumoselect.min.css"/>
+<script src="${_.contextPath}/resources/lib/jquery-sumoselect/jquery.sumoselect.min.js"></script>
+<body>
+    <select id="sumoSelectId" name="sumoSelectName" multiple="multiple" style="border-style:Groove;width:140px;"class="sumoselect_multiple">
+        <option value="">선택</option>
+        <option value="">첫 번째</option>
+        <option value="">두 번째</option>
+        <option value="">세 번째</option>
+        <option value="">네 번째</option>
+        <option value="">다섯 번째</option>
+    </select>
+</body>
+<script>
+$('.sumoselect_multiple').SumoSelect({
+	placeholder: '선택해주세요'
+});
+
+</script>
+</html>
