@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>hide</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    </head>
+    <style>
+        #panel, #flip {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+}
+#panel {
+  padding: 50px;
+}
+    </style>
+    <body>
+
+        <button id="hide">hide</button>
+        <button id="show">show</button>
+        <button id="fadein">fadein</button>
+        <button id="fadeout">fadeout</button>
+        <button id="slideup">slideup</button>
+        <button id="slidedown">slidedown</button>
+        <div id="flip">제목</div>
+        <div id="panel">Hello world!</div>
+    </body>
+    <script>
+        $(function () {
+            $("#hide").click(function () {
+                $("#panel").hide();
+            });
+            $("#show").click(function () {
+                $("#panel").show();
+            });
+            $("#fadein").click(function(){
+                $("#panel").fadeIn(1000);
+            });
+            $("#fadeout").click(function(){
+                $("#panel").fadeOut(1000);
+            });
+            $("#slideup").click(function(){
+                $("#panel").slideUp("slow");
+            });
+            $("#slidedown").click(function(){
+                $("#panel").slideDown("slow");
+            });
+            $("#flip").click(function(){
+                $("#panel").slideToggle("slow");
+            });
+        });
+    </script>
+</html>

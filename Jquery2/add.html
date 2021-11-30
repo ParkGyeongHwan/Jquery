@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>add</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+<img src="람썬1.png" width="150px" height="150px">
+</br>
+<button id="after">after</button>
+<button id="before">before</button>
+</body>
+<script>
+ $(function(){
+     $("#after").click(function(){
+         $("img").after("<b>after</b>");
+     });
+     $("#before").click(function(){
+         $("img").before("<b>before</b>");
+     });
+ });
+
+
+</script>
+</html>

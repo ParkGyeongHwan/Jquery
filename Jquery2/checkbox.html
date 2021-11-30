@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>add</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+    <input type="checkbox" value="1" name="mycheck">테스트1 </br>
+    <input type="checkbox" value="2" name="mycheck">테스트2 </br>
+    <input type="checkbox" value="3" name="mycheck">테스트3 </br>
+    <input type="checkbox" value="4" name="mycheck">테스트4 </br>
+    <input type="checkbox" value="5" name="mycheck">테스트5 </br>
+
+    <button id="btn1">전체갯수</button>
+    <button id="btn2">체크된갯수</button>
+    <button id="btn3">전체체크하기</button>
+    <button id="btn4">전체체크해제</button>
+</body>
+<script>
+ $(function(){
+
+    $("#btn1").click(function(){
+        let count = $('input:checkbox[name=mycheck]').length;
+        alert('전체갯수는' +count+ '개입니다');
+    });
+    $("#btn2").click(function(){
+        let count = $("input:checkbox[name=mycheck]:checked").length;
+        alert("체크된갯수는" +count+"개입니다");
+    });
+    $("#btn3").click(function(){
+        $('input:checkbox[name=mycheck]').attr('checked', true); // ‘checked’ 로도 사용 가능
+    });
+    $("#btn4").click(function(){
+        $('input:checkbox[name=mycheck]').attr('checked', false);
+    })
+ });
+
+
+</script>
+</html>
