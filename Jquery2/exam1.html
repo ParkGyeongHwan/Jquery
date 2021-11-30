@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>join</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    table{
+        font-size: 30px;
+    }
+    input[type=checkbox] {
+
+    zoom: 1.5;
+
+    }
+    select{
+        width: 200px;
+        height: 50px;
+    }
+    input[type=text] {
+        width: 200px;
+        height: 50px;
+    }
+    input[type=password] {
+        width: 440px;
+        height: 50px;
+    }
+    button{
+        width: 200px;
+        height: 80px;
+    }
+</style>
+<body>
+    <form>
+        <table  width="100%" border="1">
+            <tr>
+                <td height="100px" width="15%">아이디 :
+                </td>
+                <td><input type="text" maxlength="30" name="id">
+                    @
+                    <select>
+                        <option>naver.com</option>
+                        <option>gmail.com</option>
+                        <option>hanmail.net</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td height="100px">비밀번호 :</td>
+                <td><input type="password" minlength="5" id="pw1" name="pw"></td>
+            </tr>   
+            <tr>
+                <td height="100px">성별 </td>
+                <td>
+                    <input type="checkbox" name="sex">남성
+                    <input type="checkbox" name="sex">여성
+                </td>
+                <tr>
+                    <td height="100px">직업</td>
+                    <td>            
+                        <select name="job">
+                            <option></option>
+                            <option value="1">개발자</option>
+                            <option value="1">건축가</option>
+                            <option value="1">정치가</option>
+                        </select>                                                                                    
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100px">취미</td>
+                    <td>
+                        <input type="checkbox" name="hobby">개발
+                        <input type="checkbox" name="hobby">게임
+                        <input type="checkbox" name="hobby">낚시
+                        <input type="checkbox" name="hobby">운동
+                        <input type="checkbox" name="hobby">독서
+                        <input type="checkbox" name="hobby">음악감상
+                    </td>
+                </tr>
+            </tr>                    
+            <tr>
+                <td colspan="2" height="100px">
+                    <button id="reset">취소</button>
+                    <button id="join">회원가입</button>
+                </td>
+            </tr>
+        </form>
+        
+</body>
+<script>
+    $(function(){
+        
+        $("#reset").click(function() {
+            location.reload();
+        });
+        $("#join").click(function() {
+            let count = $("input:checkbox[name=hobby]:checked").length;
+            let count2 = $("input:checkbox[name=sex]:checked").length;
+            let count3 = $("select[name=job]").val();          
+            let pw1 =  $("#pw1").val();
+            if(3 <= count && 1 <= count2 && 1 == count3 && 5<=pw1.length) {
+                alert("회원가입완료");
+            } else {
+                alert("조건을 확인해주세요");
+            }
+        });
+        
+        });
+
+
+</script>
+</html>
