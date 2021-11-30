@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>exam2</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+body{
+    text-align: center;
+}
+
+</style>
+</head>
+<body>
+    <form action="">
+        <table width="100%" hegiht="80%" border="1">
+            <tr>
+                <td width="20%"><input type="checkbox"id="allcheck">확인</td>
+                <td colspan="2" width="60%">제목</td>
+                
+                <td>글쓴시간</td>
+            </tr>
+            <tr>
+                <td width="20%"><input type="checkbox" class="check" value="aaaa"></td>
+                <td colspan="2" width="60%">aaaa</td>
+                
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td width="20%"><input type="checkbox" class="check" value="wwww"></td>
+                <td colspan="2" width="60%">wwww</td>
+                
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td width="20%"><input type="checkbox" class="check" value="dddd"></td>
+                <td colspan="2" width="60%">dddd</td>
+                
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td width="20%"><input type="checkbox" class="check" value="ㅇㅅㅇ"></td>
+                <td colspan="2" width="60%">ㅇㅅㅇ</td>
+                
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td width="20%"><input type="checkbox" class="check" value="ㅁㄴㅇㄹ"></td>
+                <td colspan="2" width="60%">ㅁㄴㅇㄹ</td>
+                
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td width="20%"><input type="checkbox" class="check" value="as555sd"></td>
+                <td colspan="2" width="60%">as555sd</td>
+                
+                <td>11:11:00</td>
+            </tr>
+
+
+
+
+
+
+        </table>
+    </form>
+ <button id="log">로그</button></br>
+ 
+</body>
+<script>
+ $(function(){
+
+    $("#allcheck").click(function(){
+                if($(this).is(':checked')){
+                    $(".check").prop("checked",true);
+                }
+                else{
+                    $(".check").prop("checked",false);
+                }                
+            });
+          
+    
+     $("#log").click(function(){
+        //let c = $("input:checkbox[name='check']:checked").val();
+        $("input:checkbox[name=check]:checked").each(function(){
+          var test = $(this).val(); 
+         console.log(test);
+     });
+ });
+});
+
+</script>
+</html>
