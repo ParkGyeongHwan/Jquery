@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>add</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+#charcter{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+}
+#move{
+    position: absolute;
+    left: 50%;
+    top: 65%;
+}
+
+</style>
+
+</head>
+<body>
+    <div id="charcter">
+<img src="다운로드.jpeg" width="150px" height="150px">
+    </div>
+    <div id="move">
+<button id="up">위</button>
+<button id="down">아래</button>
+<button id="left">왼쪽</button>
+<button id="right">오른쪽</button>
+    </div>
+
+</body>
+<script>
+ 
+     $(function(){
+         $("#up").click(function(){
+            $("#charcter").css('top',"-=50px");
+
+         });
+         $("#down").click(function(){
+            $("#charcter").css('top',"+=50px");
+
+         });
+         $("#left").click(function(){
+            $("#charcter").css('left',"-=50px");
+
+         });
+         $("#right").click(function(){
+            $("#charcter").css('left',"+=50px");
+
+         });
+
+
+
+
+
+     });
+
+
+
+
+
+ 
+
+
+</script>
+</html>
