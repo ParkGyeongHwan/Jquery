@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>random</title>
+    </head>
+    <style>
+        #cha {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+
+        }
+        #mario {
+            width: 150px;
+            height: 150px;
+        }
+        #bg {
+            border: 1px solid black;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        #bgg {
+            width: 100%;
+            height: 100%;
+        }
+        #enemy {
+            position: absolute;
+
+            bottom: 10px;
+            left: 950px;
+        }
+        #gumba {
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <body>
+        <div id="bg">
+            <img id="bgg" src="bg.jpeg">
+            <div id="cha"><img id="mario" src="man.gif"></div>
+            <div id="enemy"><img id="gumba" src="gb.gif"></div>
+        </div>
+    </body>
+    <script>
+        var jump = false;
+       setTimeout(gumba_start, 1000);
+        setInterval(mariodown,10);
+        function gumba_start() {
+            $("#enemy").show();
+            let random_speed = Math.floor(Math.random() * 1000 + 3000);
+
+            $("#enemy").animate({
+                left: '0px'
+            }, random_speed, function () {
+                $("#enemy").css("left", "950px");
+                $("#enemy").hide();
+                setTimeout(gumba_start, random_speed);
+            })
+        }
+
+        function mariodown(){
+            var beat = Number($("#enemy").css("left").replace("px", ""));
+            //console.log($("#enemy").css('left'));
+            if(jump ==false &&  beat < 150) {
+                alert("마리오죽음");
+            }
+        }
+        $(function () {
+            $("#enemy").hide();
+            $("body").keydown(function (event) {
+                
+
+                if (event.keyCode == "32" && jump == false) {
+                    jump = true;
+                    $("#cha")
+                        .animate({
+                            bottom: "250px"
+                        }, 500)
+                        .animate({
+                            bottom: "0px"
+                        }, 800, function () {
+                            jump = false;
+                        });                    
+                } 
+            });
+            
+
+
+            });
+        
+    </script>
+</html>

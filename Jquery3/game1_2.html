@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>점프 실습</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        /* background-image: url("bg.jpeg");
+        background-size: cover; */
+      }
+      #bg_img {
+        border: 1px solid black;
+
+        width: 100%;
+        position: relative;
+      }
+      #mario {
+        bottom: 0px;
+        left: 100px;
+        position: absolute;
+      }
+      #mario_img {
+        width: 100px;
+      }
+      #goomba {
+        bottom: 0px;
+        left: -100%;
+        position: absolute;
+      }
+      #gb_img {
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bg">
+      <div id="mario"><img src="run.gif" id="mario_img" /></div>
+      <div id="goomba"><img src="gb.gif" id="gb_img" /></div>
+    </div>
+  </body>
+  <script>
+      function goombaStart() {
+          let speed = Math.random() * 1000 + 2000;
+        $("#goomba").css({
+            left: '90%'
+        });
+        $("#goomba").animate({
+            left: '0px'
+        }, speed, goombaStart);
+      }
+
+    $(function () {
+      let mario = $("#mario");
+      var isJumping = false;
+
+      $("body").keydown(function (event) {
+        if (event.keyCode == 32) {
+          if (!isJumping) {
+            isJumping = true;
+            mario
+              .animate(
+                {
+                  bottom: "+=300px",
+                },
+                200
+              )
+              .animate(
+                {
+                  bottom: "-=300px",
+                },
+                200,
+
+                function () {
+                  isJumping = false;
+                }
+              );
+          }
+        }
+      });
+
+      setTimeout(goombaStart, 1000);
+    });
+  </script>
+</html>
