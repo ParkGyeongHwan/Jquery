@@ -47,11 +47,11 @@ div{
     <div id="head"></div>
     <div id="body"></div>
     <div id="leftarm" class="arm"></div>
-    <div id="lightarm" class="arm"></div>
+    <div id="rightarm" class="arm"></div>
     <div id="leftpunch" class="punch"></div>
-    <div id="leftpunch" class="punch"></div>
+    <div id="rightpunch" class="punch"></div>
     <div id="leftleg" class="leg"></div>
-    <div id="rightlef" class="leg"></div>
+    <div id="rightleg" class="leg"></div>
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 
 
@@ -73,11 +73,34 @@ $(function(){
         $("#head").animate({left: "300px",top: "10px"}, 1000);
 
     });
+    $("#car").click(function(){
+        $("#body").animate({left: "310px", top:"50px"},1000);
 
+    });
+    $("#car").click(function(){
+        $("#leftarm").animate({left: "250px", top:"220px"},1000);
 
+    });
+    $("#car").click(function(){
+        $("#rightarm").animate({left: "350px", top:"220px"},1000);
 
+    });
+    $("#car").click(function(){
+        $("#leftleg").animate({left: "250px", top:"220px"},1000);
 
+    });
+    $("#car").click(function(){
+        $("#rightleg").animate({left: "400px", top:"220px"},1000);
 
+    });
+    $("#car").click(function(){
+        $("#rightpunch").animate({left: "250px", top:"300px"},1000);
+
+    });
+    $("#car").click(function(){
+        $("#leftpunch").animate({left: "400px", top:"300px"},1000);
+
+    });
 });
 
 
