@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <title>mario</title>
+    </head>
+    <style>
+        #cha {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+
+        }
+        #mario {
+            width: 150px;
+            height: 150px;
+        }
+        #bg {
+            border: 1px solid black;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        #bgg {
+            width: 100%;
+            height: 100%;
+        }
+        #enemy {
+            position: absolute;
+
+            bottom: 10px;
+            left: 950px;
+        }
+        #gumba {
+            width: 80px;
+            height: 80px;
+        }
+        #killer{
+            width: 100px;
+        }
+        #attack{
+            display: none;
+            position: absolute;
+            bottom: 0px;
+            left: 50px;
+        }
+        #score{
+            position: absolute;
+            top: 100px;
+            left: 450px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <body>
+        <div id="bg">
+            <img id="bgg" src="bg.jpeg">
+            <div id="cha"><img id="mario" src="man.gif"></div>
+            <div id="enemy"><img id="gumba" src="gb.gif"></div>
+            <div id="attack"><img id="killer" src="killer.jpeg" alt=""></div>
+            <div id="score">점수 :</div>
+        </div>
+    </body>
+    <script>
+       
+    //    /var resultscore = 0;
+       var score = 0;
+       var jump = false;
+       var killer = false;
+
+
+       setTimeout(gumba_start,1000);
+       setInterval(mariodown,100);
+       setInterval(set_score,100);
+
+
+       function set_score(){
+           $("#score").text("점수:" +score);
+
+       }
+
+       var random_speed = Math.floor(Math.random()*1000+2000)
+
+        function gumba_start(){
+            $("#enemy").show();
+            $("#enemy").animate({"left":"0px"},random_speed,function(){
+                let alive = $("#cha").css("display"); 
+                
+                if (alive== "block"){
+                    score = score + 100;
+                }
+                $("#enemy").css("left","950px");
+                $("#enemy").hide();
+                
+                setTimeout(gumba_start, random_speed);
+                
+            });
+        }
+
+        setInterval(gumbadown,100);
+
+        function gumbadown(){
+       
+
+            var beat = Number($("#enemy").css("left").replace("px", ""));
+            var beat2 = Number($("#attack").css("left").replace("px", ""));
+            if (beat - beat2 < 50 && killer ==true) {
+                
+                killer = true;
+                
+                $("#enemy").stop();
+                $("#enemy").css("left", "");
+                $("#enemy").css("right", "10px");
+                $("#enemy").hide();
+                
+                setTimeout(gumba_start, random_speed - 1000);
+                    
+            } 
+        }
+        function attackstart(){
+            $("#attack").show();
+            killer =true;
+            $("#attack").animate({left:"90%"},1000,function(){
+                killer=false;
+                
+                $("#attack").hide();
+                $("#attack").css("left","50px");
+                score = score + 150;
+            });
+        }
+
+
+        function mariodown(){
+            var beat = Number($("#enemy").css("left").replace("px", ""));
+            if(jump==false && beat < 150){
+                $("#cha").hide();   
+                //score = 0;
+               // alert("마리오사망 점수 : " +score);
+                score = 0;
+            }
+        }
+       
+        $(function () {
+            
+           $("body").keydown(function(event){
+            
+            if (event.keyCode == "32" && jump == false) {
+                jump = true;     
+                $("#cha").animate({bottom:"200px"},1000).animate({bottom:"0px"},1000,
+                function(){
+                   
+                    jump = false;
+                });
+                
+            }  else if (event.keyCode == "17" && killer == false) {
+                attackstart();
+            }
+           });
+           
+
+
+
+            });
+        
+    </script>
+</html>
