@@ -129,17 +129,22 @@
         }
 
         function mariodown() {
+            var alive = $("#cha").css("display");
             var beat = Number($("#enemy").css("left").replace("px", ""));
             console.log(beat);
-            if (jump == false && beat < 150)
-             {  $("#cha").hide();
+            if (jump == false && beat < 150 && alive=="block")
+
+             { 
+                  $("#cha").hide();
                 $("#enemy").stop();
                 $("#enemy").css("left", "950px");
                 $('#enemy').hide();
                 alert("점수 : " +score);
                 score = 0;
                 $("#score").text("점수:" + score);
+                
                 gumba_start();
+                $("#cha").show();
             }
         }
 
