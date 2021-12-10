@@ -71,6 +71,18 @@
             top: 100px;
             left: 450px;
         }
+        #mushroom_block{
+            position: absolute;
+            
+            
+            right: 10px;
+            bottom: 10px;
+        }
+        #mushroom{
+            width: 100px;
+            height: 100px;
+        }
+
     </style>
     <body>
         <div id="start">
@@ -86,6 +98,7 @@
             <img class="bg" src="bg.jpeg" >
             <div id="mario_block"><img id="mario" src="man.gif"></div>
             <div id="gumba_block"><img id="gumba" src="gb.gif"></div>
+            <div id="mushroom_block"><img id="mushroom" src="mushroom.jpeg"></div>
             <div id="killer_block"><img id="killer" src="killer.jpeg"></div>
             <div id="score">점수 : </div>
         </div>
@@ -104,6 +117,28 @@
         var jump = false;
         var killer = false;
         var score = 0;
+
+        function mushroom_start(){
+            var eat = Number($("#mushroom_block").css("left").replace("px", ""));
+            
+            console.log(jump);
+            $("#mushroom_block").animate({"left":"0px"},5000 ,function(){
+                $("#mushroom_block").hide();
+                $("#mushroom_block").css("right","10px");
+                mushroom_start();
+            });
+            if(eat < 150 && jump==false) {
+                mushroom_eat();
+            }
+            
+            
+        }
+        function mushroom_eat(){
+            
+            $("#mushroom_block").hide();
+            $("#mario").animate({"width":"250px"},1000);
+            $("#mario").animate({"height":"250px"},1000);
+        }
 
         function gumba_start() {
             $("#mario_block").show(100);
@@ -217,7 +252,7 @@
             setInterval(mario_down, 10);
             setInterval(gumba_down, 10);
             setInterval(set_score, 10); 
-
+            setInterval(mushroom_start, 1000); 
         })
     
             });
