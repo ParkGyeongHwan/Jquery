@@ -52,10 +52,11 @@
             left:450px;
         }
         #sub{
-            position: absolute;
+            position: relative;
             display: none;
-            top: 40%;
-            left: 40%;
+            width: 100%;
+            height: 100%;
+            
         }
         #start{
             top: 100px;
@@ -67,6 +68,8 @@
         }
         #subtext{
             position: absolute;
+            top: 100px;
+            left: 450px;
         }
     </style>
     <body>
@@ -89,10 +92,11 @@
          <div id="sub">
             
             
-            
+            <img class="bg" src="bg.jpeg">
+            <div id="subtext">
             <div>마리오가 죽었습니다</div>
             <div><button id="reset">다시하기 </button> </div>
-        
+        </div>
                 
         </div>
     </body>
